@@ -1,6 +1,6 @@
 # Task 1
 
-this is my first task in smart methods internship.
+This is my first task in smart methods internship.
 
 ## Setup
 
