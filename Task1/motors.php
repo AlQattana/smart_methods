@@ -17,7 +17,7 @@ mysqli_close($conn);
 <html>
    <head>
       <meta charset="utf-8">
-      <title>smart methods task 1</title>
+      <title>Task 1</title>
       <link rel="stylesheet" href="styles.css">
    </head>
    <body>
