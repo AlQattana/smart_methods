@@ -69,7 +69,7 @@ mysqli_close($conn);
             <br>
             
             <input type="checkbox" name="checkbox" style="display: none;" <?php echo ($values_array[6] == 1) ? 'checked' : ''; ?>/>
-            <input type="button" class="button" onclick="set_checked()" value="<?php echo ($values_array[6] == 1) ? 'Off' : 'On'; ?>" />           
+            <input type="button" class="button" onclick="set_checked()" value="<?php echo ($values_array[6] == 1) ? 'On' : 'Off'; ?>" />           
           
             <input type="submit" class="button" value="Save">
          </form>
