@@ -68,7 +68,7 @@ mysqli_close($conn);
             <output for="fader" id="volume6" class="vol"><?php echo $values_array[5] ?></output>
             <br>
             
-            <input type="checkbox" name="checkbox" <?php echo ($values_array[6] == 1) ? 'checked' : ''; ?>/>
+            <input type="checkbox" name="checkbox" style="display: none;" <?php echo ($values_array[6] == 1) ? 'checked' : ''; ?>/>
             <input type="button" class="button" onclick="set_checked()" value="<?php echo ($values_array[6] == 1) ? 'Off' : 'On'; ?>" />           
           
             <input type="submit" class="button" value="Save">
