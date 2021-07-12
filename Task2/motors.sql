@@ -44,7 +44,8 @@ INSERT INTO `motors` (`id`, `name`, `value`) VALUES
 (4, 'motor4', 50),
 (5, 'motor5', 50),
 (6, 'motor6', 50),
-(7, 'state', 0);
+(7, 'state', 0),
+(8, 'direction', 0);
 
 --
 -- Indexes for dumped tables
