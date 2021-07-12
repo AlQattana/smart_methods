@@ -1,8 +1,10 @@
-# Task 1
+# Task 2
 
-This is my first task in smart methods internship.
+This is my second task in smart methods internship.
 
-## Setup
+In this task I have updated the robot interface with direction buttons, implemented using ajax.
+
+## setup
 
 1- First of all you need to import `motors.sql` database.  
 2- Then edit the database connections in `config.php`.  

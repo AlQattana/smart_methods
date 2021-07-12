@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require_once 'config.php';
@@ -10,6 +11,25 @@ while($row = mysqli_fetch_array($result)){
    $values_array[$i] = $row['value'];
    $i++;
 }
+
+switch ($values_array[7]) {
+   case 0:
+     $dir = 'stop';
+     break;
+   case 1:
+     $dir = 'forward';
+     break;      
+   case 2:
+     $dir = 'right';
+     break;        
+   case 3:
+     $dir = 'left';
+     break;  
+   case 4:
+     $dir = 'backward';
+     break;    
+ }
+
 mysqli_close($conn);
 ?>
 
@@ -17,8 +37,10 @@ mysqli_close($conn);
 <html>
    <head>
       <meta charset="utf-8">
-      <title>Task 1</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>smart methods task 1</title>
       <link rel="stylesheet" href="styles.css">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    </head>
    <body>
       <div class="box">
@@ -36,9 +58,10 @@ mysqli_close($conn);
             ?>
             <div id="display-success"> Robot State is <strong>
             <?php 
-            echo ($values_array[6] == 0) ? 'off' : 'on'; 
+            echo ($values_array[6] == 0) ? '[off]' : '[on]'; 
             ?>
             </strong>
+            <!-- <?php echo ($values_array[7] == 0) ? ' and the robot is stopped' : ' and the current robot direction is [' . $dir . "]"; ?> -->
             </div>
             <br>
             <label for="main" style="display: block; text-align: center; font-weight:bold">Motors controller</label>
@@ -74,7 +97,44 @@ mysqli_close($conn);
             <input type="submit" class="button" value="Save">
          </form>
       </div>
+
+      <div class="box" style="text-align:center">
+         <form>
+            <div id="display-success" class="ctrl"> 
+            <?php echo ($values_array[7] == 0) ? 'The robot is stopped' : 'The current robot direction is <strong>[' . $dir . "]</strong>"; ?>
+            </div>
+            <button class="ctrl_btn" type="button" value="forward">FORWARD</button>
+            <br>
+            <button class="ctrl_btn" type="button" value="left">LEFT</button>
+            <button class="ctrl_btn" type="button" value="stop">STOP</button>
+            <button class="ctrl_btn" type="button" value="right">RIGHT</button>
+            <br>
+            <button class="ctrl_btn" type="button" value="backward">BACKWARD</button>
+         </form>              
+      </div>
+
    </body>
+   <script>
+      $( document ).ready(function() {
+         $(".ctrl_btn").click(function(e) {
+            var value = $(this).attr("value");
+            e.preventDefault();
+            $.ajax({
+               type: "POST",
+               url: "update_movement.php",
+               data: { 
+                     mov_value: value
+               },
+               success: function(result) {
+                     if(value === "stop")
+                        $('.ctrl').html("The robot is stopped")
+                     else
+                        $('.ctrl').html("The current robot direction is <strong>[" + value + "]</strong>")
+               },
+            });
+         });         
+      });
+   </script>
    <script>
       function outputUpdate(vol, id) {
          var element = '#volume' + id
