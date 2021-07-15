@@ -1,8 +1,8 @@
-# Task 2
+# Task 3
 
-This is my second task in smart methods internship.
+This is my third task in smart methods internship.
 
-In this task I have updated the robot interface with direction buttons, implemented using ajax.
+In this task I have implemented the IBM Watson's chat bot.
 
 ## setup
 
