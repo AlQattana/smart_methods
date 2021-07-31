@@ -1,13 +1,3 @@
-# tts-stt
-تحويل الصوت الى نص 
-في الملفات التالية
-transcrib.py
-الناتج محفوظ في 
-stt.txt
-- - - - - - - - - - - - - - - - - -
-تحويل النص الى صوت
-textts.py
-النص مكتوب في 
-Churchill.txt
-الصوت محفوظ في 
-Churchill.mp3
+# Task 4
+1- first of all, install all dependencies by running `pip install -r requirements.txt`
+2- execute `python transcripe.py -t 20`
